@@ -2,6 +2,7 @@
   "name": "nutation.js",
   "version": "0.0.0",
   "private": false,
+  "license": "MIT",
   "scripts": {
     "test:unit": "jest --verbose"
   },
