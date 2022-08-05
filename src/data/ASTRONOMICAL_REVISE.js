@@ -4,12 +4,12 @@
  * @Author: lax
  * @Date: 2022-08-01 22:43:10
  * @LastEditors: lax
- * @LastEditTime: 2022-08-01 22:45:32
- * @FilePath: \tao_solar_terms\src\data\nutation\ASTRONOMICAL_REVISE.js
+ * @LastEditTime: 2022-08-05 18:20:04
+ * @FilePath: \nutation\src\data\ASTRONOMICAL_REVISE.js
  */
 /**
  * from by 《Astronomical.Algorithms》
- * sort: l l_ F D Omega
+ * sort: l l` F D Omega
  */
 module.exports = [
 	[0, 0, 0, 0, 1, -171996, -174.2, 92025, 8.9],
