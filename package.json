@@ -3,11 +3,19 @@
   "version": "0.0.0",
   "private": false,
   "license": "MIT",
+  "author": {
+    "name": "lax",
+    "email": "1546356935@qq.com"
+  },
   "scripts": {
     "test:unit": "jest --verbose"
   },
   "dependencies": {
   },
+  "files": [
+    "src/",
+    "readme.md"
+  ],
   "devDependencies": {
     "fs-extra": "^10.0.0",
     "moment": "^2.29.1",
