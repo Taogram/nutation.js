@@ -1,3 +1,12 @@
+/*
+ * @Description:
+ * @Version: 1.0.0
+ * @Author: lax
+ * @Date: 2022-08-02 21:21:46
+ * @LastEditors: lax
+ * @LastEditTime: 2022-08-06 09:38:46
+ * @FilePath: \nutation\src\algorithm\IAU1980.js
+ */
 module.exports = {
 	l(T) {
 		return (
@@ -15,10 +24,14 @@ module.exports = {
 		);
 	},
 	D(T) {
-		297.85036 + 455267.11148 * T - 0.0019142 * T * T + (T * T * T) / 189474.0;
+		return (
+			297.85036 + 455267.11148 * T - 0.0019142 * T * T + (T * T * T) / 189474.0
+		);
 	},
 	O(T) {
-		125.04452 - 1934.136261 * T - 0.0020708 * T * T + (T * T * T) / 450000;
+		return (
+			125.04452 - 1934.136261 * T - 0.0020708 * T * T + (T * T * T) / 450000
+		);
 	},
 	calc(T, argument, [a, b, c, d, e, sin1, sin2]) {
 		return (sin1 + sin2 * T) * Math.sin(argument);
