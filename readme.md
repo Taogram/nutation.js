@@ -1,13 +1,3 @@
-<!--
- * @Description: 
- * @Version: 1.0.0
- * @Author: lax
- * @Date: 2022-02-26 14:15:25
- * @LastEditors: lax
- * @LastEditTime: 2022-08-08 10:38:15
- * @FilePath: \nutation.js\readme.md
--->
-
 ## 介绍
 基于js的章动计算实现
 
