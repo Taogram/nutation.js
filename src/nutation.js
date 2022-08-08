@@ -4,8 +4,8 @@
  * @Author: lax
  * @Date: 2022-02-26 13:39:00
  * @LastEditors: lax
- * @LastEditTime: 2022-08-02 21:26:56
- * @FilePath: \nutation\src\nutation.js
+ * @LastEditTime: 2022-08-08 14:22:12
+ * @FilePath: \nutation.js\src\nutation.js
  */
 const ASTRONOMICAL_REVISE = require("@/data/ASTRONOMICAL_REVISE.js");
 const TIME = require("@/tools/time");
@@ -33,16 +33,32 @@ class Nutation {
 	 * @param {JC} T
 	 * @returns {angle} nutation
 	 */
-	offset(T = this.T) {
+	longitude(T = this.T) {
 		const result = this.nutation.reduce((acc, row) => {
-			const [l, l_, F, D, O] = row;
-			let argument =
-				this.l * l + this.l_ * l_ + this.F * F + this.D * D + this.O * O;
-			argument /= this.RADIAN_ANGLE;
-
-			return acc + this.algo.calc(T, argument, row);
+			const argument = this.calcArgument(row);
+			return acc + this.algo.calcLongitude(T, argument, row);
 		}, 0);
 		return (result * this.coefficient) / 3600;
+	}
+
+	/**
+	 *
+	 * @param {JC} T
+	 * @returns {angle} nutation
+	 */
+	obliquity(T = this.T) {
+		const result = this.nutation.reduce((acc, row) => {
+			const argument = this.calcArgument(row);
+			return acc + this.algo.calcObliquity(T, argument, row);
+		}, 0);
+		return (result * this.coefficient) / 3600;
+	}
+
+	calcArgument([l, l_, F, D, O]) {
+		let argument =
+			this.l * l + this.l_ * l_ + this.F * F + this.D * D + this.O * O;
+		argument /= this.RADIAN_ANGLE;
+		return argument;
 	}
 
 	/**

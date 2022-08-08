@@ -4,8 +4,8 @@
  * @Author: lax
  * @Date: 2022-08-02 21:21:46
  * @LastEditors: lax
- * @LastEditTime: 2022-08-06 09:38:46
- * @FilePath: \nutation\src\algorithm\IAU1980.js
+ * @LastEditTime: 2022-08-08 14:22:31
+ * @FilePath: \nutation.js\src\algorithm\IAU1980.js
  */
 module.exports = {
 	l(T) {
@@ -33,7 +33,10 @@ module.exports = {
 			125.04452 - 1934.136261 * T - 0.0020708 * T * T + (T * T * T) / 450000
 		);
 	},
-	calc(T, argument, [a, b, c, d, e, sin1, sin2]) {
+	calcLongitude(T, argument, [a, b, c, d, e, sin1, sin2]) {
 		return (sin1 + sin2 * T) * Math.sin(argument);
+	},
+	calcObliquity(T, argument, [a, b, c, d, e, sin1, sin2, cos1, cos2]) {
+		return (cos1 + cos2 * T) * Math.cos(argument);
 	},
 };
