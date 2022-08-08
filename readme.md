@@ -28,6 +28,16 @@
 const Nutation = require("@/index.js");
 const nutation = new Nutation(jde,ALGO,LIB);
 ```
+
+```
+<!-- longitude nutation -->
+nutation.longitude();
+```
+
+```
+<!-- obliquity nutation -->
+nutation.obliquity();
+```
 ### 参数
 
 * jde 

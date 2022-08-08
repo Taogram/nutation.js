@@ -4,8 +4,8 @@
  * @Author: lax
  * @Date: 2022-02-26 14:15:25
  * @LastEditors: lax
- * @LastEditTime: 2022-08-02 21:44:58
- * @FilePath: \nutation\readme.md
+ * @LastEditTime: 2022-08-08 14:25:18
+ * @FilePath: \nutation.js\readme - en.md
 -->
 
 ## 介绍
@@ -27,6 +27,16 @@
 <!-- 尚未构建npm包 -->
 const Nutation = require("@/index.js");
 const nutation = new Nutation(jde,ALGO,LIB);
+```
+
+```
+<!-- longitude nutation -->
+nutation.longitude();
+```
+
+```
+<!-- obliquity nutation -->
+nutation.obliquity();
 ```
 ### 参数
 
