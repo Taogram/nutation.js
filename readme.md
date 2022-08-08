@@ -4,8 +4,8 @@
  * @Author: lax
  * @Date: 2022-02-26 14:15:25
  * @LastEditors: lax
- * @LastEditTime: 2022-08-02 21:44:58
- * @FilePath: \nutation\readme.md
+ * @LastEditTime: 2022-08-08 10:38:15
+ * @FilePath: \nutation.js\readme.md
 -->
 
 ## 介绍
@@ -37,7 +37,7 @@ const nutation = new Nutation(jde,ALGO,LIB);
 章动的算法实现，默认基于IAU1980算法的简化实现，可以自定义
 
 * LIB
-算法的章动序列表，默认基于《Astronomical.Algorithms》的简化序列，不考虑精度小于等于0.0003
+算法的章动序列表，默认基于《Astronomical.Algorithms》的简化序列（该表忽略了系数小于0.0003的周期项）
 
 ### 返回值
 基于角度单位的值
