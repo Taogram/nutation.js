@@ -9,6 +9,7 @@
   },
   "main": "src/nutation.js",
   "scripts": {
+    "build": "babel src/ -d dist/",
     "test:unit": "jest --verbose"
   },
   "dependencies": {
