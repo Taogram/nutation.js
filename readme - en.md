@@ -14,8 +14,7 @@
 ### 引用
 
 ```
-<!-- 尚未构建npm包 -->
-const Nutation = require("@/index.js");
+const Nutation = require("nutation.js");
 const nutation = new Nutation(jde,ALGO,LIB);
 ```
 
