@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2022-08-02 21:21:46
  * @LastEditors: lax
- * @LastEditTime: 2022-08-08 14:22:31
+ * @LastEditTime: 2022-08-09 09:08:58
  * @FilePath: \nutation.js\src\algorithm\IAU1980.js
  */
 module.exports = {
@@ -25,7 +25,7 @@ module.exports = {
 	},
 	D(T) {
 		return (
-			297.85036 + 455267.11148 * T - 0.0019142 * T * T + (T * T * T) / 189474.0
+			297.85036 + 445267.11148 * T - 0.0019142 * T * T + (T * T * T) / 189474.0
 		);
 	},
 	O(T) {
