@@ -1,13 +1,13 @@
 {
   "name": "nutation.js",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": false,
   "license": "MIT",
   "author": {
     "name": "lax",
     "email": "1546356935@qq.com"
   },
-  "main": "src/nutation.js",
+  "main": "dist/nutation.js",
   "scripts": {
     "build": "babel src/ -d dist/",
     "test:unit": "jest --verbose"
@@ -15,7 +15,7 @@
   "dependencies": {
   },
   "files": [
-    "src/",
+    "dist/",
     "readme.md"
   ],
   "devDependencies": {
