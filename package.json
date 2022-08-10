@@ -1,11 +1,17 @@
 {
   "name": "nutation.js",
-  "version": "0.3.2",
+  "version": "0.3.3",
+  "description": "nutation by js",
   "private": false,
   "license": "MIT",
   "author": {
     "name": "lax",
     "email": "1546356935@qq.com"
+  },
+  "homepage": "https://github.com/Taogram/nutation.js.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Taogram/nutation.js.git"
   },
   "main": "dist/nutation.js",
   "scripts": {
