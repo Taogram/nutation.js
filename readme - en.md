@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0.0
+ * @Author: lax
+ * @Date: 2022-08-09 09:04:42
+ * @LastEditors: lax
+ * @LastEditTime: 2022-08-10 11:11:04
+ * @FilePath: \nutation.js\readme - en.md
+-->
 ## 介绍
 基于js的章动计算实现
 
@@ -33,10 +42,11 @@ nutation.obliquity();
 给定任意时刻的，基于力学时的儒略日
 
 * ALGO
-章动的算法实现，默认基于IAU1980算法的简化实现，可以自定义
+章动的算法实现，默认基于IAU1980算法的简化实现，可以自定义 自定义参考（/src/algorithm/IAU1980.js）
 
 * LIB
 算法的章动序列表，默认基于《Astronomical.Algorithms》的简化序列，不考虑精度小于等于0.0003
+表参考（/src/data/）
 
 ### 返回值
 基于角度单位的值
