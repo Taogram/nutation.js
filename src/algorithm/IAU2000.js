@@ -4,8 +4,8 @@
  * @Author: lax
  * @Date: 2022-08-01 22:48:51
  * @LastEditors: lax
- * @LastEditTime: 2022-08-01 23:20:43
- * @FilePath: \tao_solar_terms\src\algorithm\nutation\IAU2000.JS
+ * @LastEditTime: 2022-08-28 09:53:30
+ * @FilePath: \nutation\src\algorithm\IAU2000.js
  */
 // TODO
 
@@ -40,6 +40,7 @@ module.exports = {
 	O(T) {
 		125.04452 - 1934.136261 * T - 0.0020708 * T * T + (T * T * T) / 450000;
 	},
+	/* eslint-disable*/
 	calc(T, argument, [a, b, c, d, e, sin1, sin2, cos1, cos2, sin3, sin4]) {
 		return (
 			(sin1 + sin2 * T) * Math.sin(argument) +
