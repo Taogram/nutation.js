@@ -1,10 +1,10 @@
 /*
- * @Description:
+ * @Description: nutation by《Astronomical.Algorithms》(章动表，自《天文算法》)
  * @Version: 1.0.0
  * @Author: lax
  * @Date: 2022-08-01 22:43:10
  * @LastEditors: lax
- * @LastEditTime: 2022-08-05 18:20:04
+ * @LastEditTime: 2023-04-05 22:08:19
  * @FilePath: \nutation\src\data\ASTRONOMICAL_REVISE.js
  */
 /**
