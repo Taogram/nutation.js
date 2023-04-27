@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2022-08-02 21:21:46
  * @LastEditors: lax
- * @LastEditTime: 2022-08-09 09:08:58
+ * @LastEditTime: 2023-04-27 10:50:24
  * @FilePath: \nutation.js\src\algorithm\IAU1980.js
  */
 module.exports = {
@@ -33,9 +33,11 @@ module.exports = {
 			125.04452 - 1934.136261 * T - 0.0020708 * T * T + (T * T * T) / 450000
 		);
 	},
+	/* eslint-disable-next-line */
 	calcLongitude(T, argument, [a, b, c, d, e, sin1, sin2]) {
 		return (sin1 + sin2 * T) * Math.sin(argument);
 	},
+	/* eslint-disable-next-line */
 	calcObliquity(T, argument, [a, b, c, d, e, sin1, sin2, cos1, cos2]) {
 		return (cos1 + cos2 * T) * Math.cos(argument);
 	},
