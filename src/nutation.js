@@ -4,19 +4,20 @@
  * @Author: lax
  * @Date: 2022-02-26 13:39:00
  * @LastEditors: lax
- * @LastEditTime: 2022-08-08 14:22:12
+ * @LastEditTime: 2023-04-27 11:04:02
  * @FilePath: \nutation.js\src\nutation.js
  */
 const ASTRONOMICAL_REVISE = require("@/data/ASTRONOMICAL_REVISE.js");
 const TIME = require("@/tools/time");
 const IAU1980 = require("@/algorithm/IAU1980.js");
-
+const IAU2000 = require("@/algorithm/IAU2000.js");
+const ALGORITHMS = { IAU1980, IAU2000 };
 /**
  * @class 章动
  */
 class Nutation {
-	constructor(JDE, ALGO = IAU1980, NUTATION = ASTRONOMICAL_REVISE) {
-		this.algo = ALGO;
+	constructor(JDE, ALGO = 1980, NUTATION = ASTRONOMICAL_REVISE) {
+		this.algo = typeof ALGO !== "number" ? ALGO : ALGORITHMS[`IAU${ALGO}`];
 		this.T = TIME.getJulianCentury(JDE);
 		this.D = this.getD();
 		this.l = this.getL();
