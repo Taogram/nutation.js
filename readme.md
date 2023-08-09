@@ -2,24 +2,16 @@
  * @Description: 
  * @Version: 1.0.0
  * @Author: lax
- * @Date: 2022-08-11 00:02:06
+ * @Date: 2022-08-09 09:04:42
  * @LastEditors: lax
- * @LastEditTime: 2022-08-11 00:34:02
- * @FilePath: \nutation\readme.md
+ * @LastEditTime: 2023-08-09 21:52:45
+ * @FilePath: \nutation.js\readme - en.md
 -->
-# Nutation.js
-
-![GitHub](https://img.shields.io/github/license/Taogram/nutation.js) ![GitHub package.json version](https://img.shields.io/github/package-json/v/Taogram/nutation.js)
-
+## 介绍
 基于js的章动计算实现
-
+本项目主要用于[Taogram](https://github.com/Taogram/taogram)的节气算法辅助使用，非标准天文项目。
 ## 算法
-
-### IAU1980
-已实现
-
-### IAU2000
-已实现
+IAU1980/IAU2000可选
 
 ## 使用说明
 
@@ -27,7 +19,7 @@
 
 ```
 const Nutation = require("nutation.js");
-const nutation = new Nutation(jde,ALGO,LIB);
+const nutation = new Nutation(jde,IAU);
 ```
 
 ```
@@ -39,23 +31,23 @@ nutation.longitude();
 <!-- obliquity nutation -->
 nutation.obliquity();
 ```
-## api
+### 参数
 
-### jde 
+* jde 
 给定任意时刻的，基于力学时的儒略日
 
-### ALGO
-章动的算法实现，默认基于IAU1980算法的简化实现，可以自定义 自定义参考（/src/algorithm/IAU1980.js）
+* IAU
+章动的算法实现，默认基于IAU2000B算法的实现，也可以选择IAU1980.
+算法的章动序列表为简化序列表参考（/src/data/）
+```
+const nutation = new Nutation(jde,1980/2000);
+```
 
-### LIB
-算法的章动序列表，默认基于《Astronomical.Algorithms》的简化序列（该表忽略了系数小于0.0003的周期项）
-表参考目录（/src/data/）
-
-## 返回值
+### 返回值
 基于角度单位的值
 
 
-## 参考资料
+### 参考资料
 
 * 《IAU1976、1980及2000A岁差章动模型的比较》
 * 《1980IAU章动理论最终报告》

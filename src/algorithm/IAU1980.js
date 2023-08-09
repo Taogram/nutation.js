@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2022-08-02 21:21:46
  * @LastEditors: lax
- * @LastEditTime: 2023-04-27 10:50:24
+ * @LastEditTime: 2023-08-09 21:11:05
  * @FilePath: \nutation.js\src\algorithm\IAU1980.js
  */
 module.exports = {

@@ -4,10 +4,10 @@
  * @Author: lax
  * @Date: 2022-02-26 13:39:00
  * @LastEditors: lax
- * @LastEditTime: 2023-04-27 14:48:01
+ * @LastEditTime: 2023-08-09 21:24:58
  * @FilePath: \nutation.js\src\nutation.js
  */
-const IAU1980_LIB = require("@/data/ASTRONOMICAL_REVISE.js");
+const IAU1980_LIB = require("@/data/ASTRONOMICAL_IAU1980_REVISE.js");
 const IAU2000_LIB = require("@/data/ASTRONOMICAL_IAU2000.js");
 const ASTRONOMICAL = { IAU1980: IAU1980_LIB, IAU2000: IAU2000_LIB };
 const TIME = require("@/tools/time");
@@ -18,17 +18,18 @@ const ALGORITHMS = { IAU1980, IAU2000 };
  * @class 章动
  */
 class Nutation {
-	constructor(JDE, ALGO = 1980, NUTATION = 1980) {
-		this.algo = typeof ALGO !== "number" ? ALGO : ALGORITHMS[`IAU${ALGO}`];
+	constructor(JDE, ALGO = 2000) {
+		const IAU = ALGO === 2000 ? 2000 : 1980;
+		this.algo = ALGORITHMS[`IAU${IAU}`];
 		this.T = TIME.getJulianCentury(JDE);
 		this.D = this.getD();
 		this.l = this.getL();
 		this.l_ = this.getL_();
 		this.F = this.getF();
 		this.O = this.getO();
-		this.coefficient = 0.0001;
-		this.nutation =
-			typeof NUTATION !== "number" ? NUTATION : ASTRONOMICAL[`IAU${ALGO}`];
+		const { data, coefficient } = ASTRONOMICAL[`IAU${ALGO}`];
+		this.nutation = data;
+		this.coefficient = coefficient;
 		this.RADIAN_ANGLE = 180 / Math.PI;
 	}
 
