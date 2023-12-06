@@ -4,15 +4,15 @@
  * @Author: lax
  * @Date: 2021-12-18 22:44:06
  * @LastEditors: lax
- * @LastEditTime: 2023-08-09 21:17:27
+ * @LastEditTime: 2023-12-06 09:31:49
  * @FilePath: \nutation\src\data\ASTRONOMICAL.js
  */
 /**
- * from by 《Astronomical.Algorithms》
- * sort: M M` D F Omega
+ * from by 《Astronomical.Algorithms》(ignore < 0.0003)
+ * sort: D M M` F Omega
  */
 module.exports = {
-	coefficient: 0.0000001,
+	coefficient: 0.0001,
 	data: [
 		[0, 0, 0, 0, 1, -171996, -174.2, 92025, 8.9],
 		[-2, 0, 0, 2, 2, -13187, -1.6, 5736, -3.1],

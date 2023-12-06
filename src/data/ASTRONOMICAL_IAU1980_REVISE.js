@@ -8,7 +8,7 @@
  * @FilePath: \nutation\src\data\ASTRONOMICAL_REVISE.js
  */
 /**
- * from by 《Astronomical.Algorithms》
+ * from by 《Astronomical.Algorithms》(ignore < 0.0003)
  * sort: l l` F D Omega
  */
 module.exports = {

@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2022-02-26 13:39:00
  * @LastEditors: lax
- * @LastEditTime: 2023-08-09 21:24:58
+ * @LastEditTime: 2023-12-06 09:58:44
  * @FilePath: \nutation.js\src\nutation.js
  */
 const IAU1980_LIB = require("@/data/ASTRONOMICAL_IAU1980_REVISE.js");
@@ -30,7 +30,7 @@ class Nutation {
 		const { data, coefficient } = ASTRONOMICAL[`IAU${ALGO}`];
 		this.nutation = data;
 		this.coefficient = coefficient;
-		this.RADIAN_ANGLE = 180 / Math.PI;
+		this.RADIAN_ANGLE = Math.PI / 180;
 	}
 
 	/**
@@ -43,7 +43,7 @@ class Nutation {
 			const argument = this.calcArgument(row);
 			return acc + this.algo.calcLongitude(T, argument, row);
 		}, 0);
-		return (result * this.coefficient) / 3600;
+		return result * this.coefficient;
 	}
 
 	/**
@@ -62,7 +62,7 @@ class Nutation {
 	calcArgument([l, l_, F, D, O]) {
 		let argument =
 			this.l * l + this.l_ * l_ + this.F * F + this.D * D + this.O * O;
-		argument /= this.RADIAN_ANGLE;
+		argument *= this.RADIAN_ANGLE;
 		return argument;
 	}
 
