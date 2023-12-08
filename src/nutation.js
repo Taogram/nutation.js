@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2022-02-26 13:39:00
  * @LastEditors: lax
- * @LastEditTime: 2023-12-06 09:58:44
+ * @LastEditTime: 2023-12-08 20:32:18
  * @FilePath: \nutation.js\src\nutation.js
  */
 const IAU1980_LIB = require("@/data/ASTRONOMICAL_IAU1980_REVISE.js");
