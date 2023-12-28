@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2022-06-29 21:00:45
  * @LastEditors: lax
- * @LastEditTime: 2023-12-06 10:11:21
+ * @LastEditTime: 2023-12-28 22:30:09
  * @FilePath: \nutation.js\test\nutation.spec.js
  */
 const Nutation = require("@/nutation.js");
@@ -30,11 +30,41 @@ describe("《Astronomical.Algorithms》21.a / jde=2446895.5", () => {
 	it(`O 371°.2531`, () => {
 		expect(nutation.O).toBeCloseTo(371.2531, 4);
 	});
+	// -3".788有误
 	it(`longitude -3".788`, () => {
-		expect(nutation.longitude()).toBeCloseTo(-0.0010522222, 6);
+		expect(nutation.longitude()).toBeCloseTo(-0.001052173431676, 7);
 	});
-	it(`longitude +9".443`, () => {
-		expect(nutation.obliquity()).toBeCloseTo(0.0026230555, 8);
+	it(`obliquity +9".443`, () => {
+		expect(nutation.obliquity()).toBeCloseTo(0.0026201416025988097, 5);
+	});
+});
+
+describe("SOFA test jde=2446895.5", () => {
+	const jde = 2446895.5;
+	const nutation = new Nutation(jde, 1980, true);
+	// -3".788有误
+	it(`longitude -3".788`, () => {
+		expect(nutation.longitude()).toBeCloseTo(-0.001052173431676, 15);
+	});
+	it(`obliquity +9".443`, () => {
+		expect(nutation.obliquity()).toBeCloseTo(0.002622907050506, 15);
+	});
+});
+
+describe("SOFA/t_sofa_c.c test jde=2453736.5", () => {
+	const jde = 2453736.5;
+	const nutation = new Nutation(jde, 1980, true);
+	it(`longitude -0.9643658353226563966e-5`, () => {
+		expect(nutation.longitude() * (Math.PI / 180)).toBeCloseTo(
+			-0.9643658353226563966e-5,
+			15
+		);
+	});
+	it(`obliquity 0.4060051006879713322e-4`, () => {
+		expect(nutation.obliquity() * (Math.PI / 180)).toBeCloseTo(
+			0.4060051006879713322e-4,
+			15
+		);
 	});
 });
 
