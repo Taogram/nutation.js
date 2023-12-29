@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2022-08-09 09:04:42
  * @LastEditors: lax
- * @LastEditTime: 2023-12-28 22:33:38
+ * @LastEditTime: 2023-12-29 14:37:46
  * @FilePath: \nutation.js\readme - en.md
 -->
 ## 介绍
@@ -12,15 +12,15 @@
 ⚠⚠⚠(Math.PI = 3.141592653589793)计算基于JSΠ的最大值
 本项目主要用于[Taogram](https://github.com/Taogram/taogram)的节气算法辅助使用，非标准天文项目。
 ## 算法
-IAU1980/IAU2000可选
-
+IAU1980/IAU2000B可选
+IAU2000A 施工中
 ## 使用说明
 
 ### 引用
 
 ```
 const Nutation = require("nutation.js");
-const nutation = new Nutation(jde,IAU);
+const nutation = new Nutation(jde,IAU,FULL);
 ```
 
 ```
@@ -41,8 +41,11 @@ nutation.obliquity();
 章动的算法实现，默认基于IAU2000B算法的实现，也可以选择IAU1980.
 算法的章动序列表为简化序列表参考（/src/data/）
 ```
-const nutation = new Nutation(jde,1980/2000);
+const nutation = new Nutation(jde,1980/2000b);
 ```
+* FULL
+true/false
+是否使用简化的章动库，当前仅1980有效
 
 ### 返回值
 基于角度单位的值

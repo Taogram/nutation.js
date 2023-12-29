@@ -4,15 +4,17 @@
  * @Author: lax
  * @Date: 2022-02-26 13:39:00
  * @LastEditors: lax
- * @LastEditTime: 2023-12-29 11:28:03
+ * @LastEditTime: 2023-12-29 14:22:07
  * @FilePath: \nutation.js\src\nutation.js
  */
 const IAU1980_LIB = require("@/data/ASTRONOMICAL_IAU1980.js");
 const IAU1980_LIB_FULL = require("@/data/ASTRONOMICAL_IAU1980_FULL.js");
-const IAU2000_LIB = require("@/data/ASTRONOMICAL_IAU2000.js");
+const IAU2000A_LIB = require("@/data/ASTRONOMICAL_IAU2000A.js");
+const IAU2000B_LIB = require("@/data/ASTRONOMICAL_IAU2000B.js");
 const ASTRONOMICAL = {
 	IAU1980: IAU1980_LIB,
-	IAU2000: IAU2000_LIB,
+	IAU2000A: IAU2000A_LIB,
+	IAU2000B: IAU2000B_LIB,
 	IAU1980_FULL: IAU1980_LIB_FULL,
 };
 const TIME = require("@/tools/time");
@@ -34,7 +36,7 @@ class Nutation {
 		this.F = this.getF();
 		this.O = this.getO();
 		const { data, coefficient } =
-			ASTRONOMICAL[`IAU${IAU.substring(0, 4)}${FULL ? "_FULL" : ""}`];
+			ASTRONOMICAL[`IAU${IAU}${FULL ? "_FULL" : ""}`];
 		this.nutation = data;
 		this.coefficient = coefficient;
 		this.RADIAN_ANGLE = Math.PI / 180;
