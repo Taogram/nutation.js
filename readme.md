@@ -4,11 +4,12 @@
  * @Author: lax
  * @Date: 2022-08-09 09:04:42
  * @LastEditors: lax
- * @LastEditTime: 2023-08-09 21:52:45
+ * @LastEditTime: 2023-12-28 22:33:38
  * @FilePath: \nutation.js\readme - en.md
 -->
 ## 介绍
 基于js的章动计算实现
+⚠⚠⚠(Math.PI = 3.141592653589793)计算基于JSΠ的最大值
 本项目主要用于[Taogram](https://github.com/Taogram/taogram)的节气算法辅助使用，非标准天文项目。
 ## 算法
 IAU1980/IAU2000可选
