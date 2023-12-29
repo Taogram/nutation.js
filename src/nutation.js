@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2022-02-26 13:39:00
  * @LastEditors: lax
- * @LastEditTime: 2023-12-28 21:45:28
+ * @LastEditTime: 2023-12-29 11:28:03
  * @FilePath: \nutation.js\src\nutation.js
  */
 const IAU1980_LIB = require("@/data/ASTRONOMICAL_IAU1980.js");
@@ -17,14 +17,15 @@ const ASTRONOMICAL = {
 };
 const TIME = require("@/tools/time");
 const IAU1980 = require("@/algorithm/IAU1980.js");
-const IAU2000 = require("@/algorithm/IAU2000.js");
-const ALGORITHMS = { IAU1980, IAU2000 };
+const IAU2000A = require("@/algorithm/IAU2000A.js");
+const IAU2000B = require("@/algorithm/IAU2000B.js");
+const ALGORITHMS = { IAU1980, IAU2000A, IAU2000B };
 /**
  * @class 章动
  */
 class Nutation {
-	constructor(JDE, ALGO = 2000, FULL = false) {
-		const IAU = ALGO === 2000 ? 2000 : 1980;
+	constructor(JDE, ALGO = "2000B", FULL = false) {
+		const IAU = this.getIAU(ALGO);
 		this.algo = ALGORITHMS[`IAU${IAU}`];
 		this.T = TIME.getJulianCentury(JDE);
 		this.D = this.getD();
@@ -33,7 +34,7 @@ class Nutation {
 		this.F = this.getF();
 		this.O = this.getO();
 		const { data, coefficient } =
-			ASTRONOMICAL[`IAU${ALGO}${FULL ? "_FULL" : ""}`];
+			ASTRONOMICAL[`IAU${IAU.substring(0, 4)}${FULL ? "_FULL" : ""}`];
 		this.nutation = data;
 		this.coefficient = coefficient;
 		this.RADIAN_ANGLE = Math.PI / 180;
@@ -45,11 +46,12 @@ class Nutation {
 	 * @returns {angle} nutation
 	 */
 	longitude(T = this.T) {
+		const offset = this.algo.longitudeOffset();
 		const result = this.nutation.reduce((acc, row) => {
 			const argument = this.calcArgument(row);
 			return acc + this.algo.calcLongitude(T, argument, row);
 		}, 0);
-		return (result * this.coefficient) / 3600;
+		return (result * this.coefficient + offset) / 3600;
 	}
 
 	/**
@@ -58,11 +60,12 @@ class Nutation {
 	 * @returns {angle} nutation
 	 */
 	obliquity(T = this.T) {
+		const offset = this.algo.obliquityOffset();
 		const result = this.nutation.reduce((acc, row) => {
 			const argument = this.calcArgument(row);
 			return acc + this.algo.calcObliquity(T, argument, row);
 		}, 0);
-		return (result * this.coefficient) / 3600;
+		return (result * this.coefficient + offset) / 3600;
 	}
 
 	calcArgument([l, l_, F, D, O]) {
@@ -115,6 +118,20 @@ class Nutation {
 	 */
 	getO(T = this.T) {
 		return this.algo.O(T);
+	}
+
+	getIAU(ALGO) {
+		let IAU = String(ALGO).toLowerCase();
+		switch (IAU) {
+			case "1980":
+				return "1980";
+			case "2000b":
+				return "2000B";
+			case "2000a":
+				return "2000A";
+			default:
+				return "2000B";
+		}
 	}
 }
 

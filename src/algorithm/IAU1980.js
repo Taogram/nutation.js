@@ -54,4 +54,10 @@ module.exports = {
 	calcObliquity(T, argument, [a, b, c, d, e, sin1, sin2, cos1, cos2]) {
 		return (cos1 + cos2 * T) * Math.cos(argument);
 	},
+	longitudeOffset() {
+		return 0;
+	},
+	obliquityOffset() {
+		return 0;
+	},
 };
