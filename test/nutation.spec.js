@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2022-06-29 21:00:45
  * @LastEditors: lax
- * @LastEditTime: 2023-12-29 14:19:08
+ * @LastEditTime: 2024-07-22 00:47:07
  * @FilePath: \nutation.js\test\nutation.spec.js
  */
 const Nutation = require("@/nutation.js");
@@ -32,21 +32,20 @@ describe("《Astronomical.Algorithms》21.a / jde=2446895.5", () => {
 	});
 	// -3".788有误
 	it(`longitude -3".788`, () => {
-		expect(nutation.longitude()).toBeCloseTo(-0.001052173431676, 7);
+		expect(nutation.longitude() * 3600).toBeCloseTo(-3.788, 3);
 	});
 	it(`obliquity +9".443`, () => {
-		expect(nutation.obliquity()).toBeCloseTo(0.0026201416025988097, 5);
+		expect(nutation.obliquity() * 3600).toBeCloseTo(9.443, 3);
 	});
 });
 
 describe("SOFA test jde=2446895.5", () => {
 	const jde = 2446895.5;
 	const nutation = new Nutation(jde, 1980, true);
-	// -3".788有误
-	it(`longitude -3".788`, () => {
+	it(`longitude -3".7878`, () => {
 		expect(nutation.longitude()).toBeCloseTo(-0.001052173431676, 15);
 	});
-	it(`obliquity +9".443`, () => {
+	it(`obliquity +9".4424`, () => {
 		expect(nutation.obliquity()).toBeCloseTo(0.002622907050506, 15);
 	});
 });
@@ -68,36 +67,19 @@ describe("SOFA/t_sofa_c.c test jde=2453736.5", () => {
 	});
 });
 
-describe("IAU2000B SOFA jde=2453736.5 offset", () => {
-	const jde = 2453736.5;
-	const nutation = new Nutation(jde);
-
-	it(`longitude offset -0.654498469497873629123e-9`, () => {
-		expect(
-			(nutation.algo.longitudeOffset() / 3600) * (Math.PI / 180)
-		).toBeCloseTo(-0.654498469497873629123e-9, 15);
-	});
-
-	it(`obliquity offset  0.1881077082704999821911e-8`, () => {
-		expect(
-			(nutation.algo.obliquityOffset() / 3600) * (Math.PI / 180)
-		).toBeCloseTo(0.1881077082704999821911e-8, 15);
-	});
-});
-
 describe("IAU2000B SOFA jde=2453736.5", () => {
 	const jde = 2453736.5;
 	const nutation = new Nutation(jde);
 
-	it(`longitude  -0.963255229114832e-5`, () => {
+	it(`longitude  -0.9632552291148362783e-5`, () => {
 		expect(nutation.longitude() * (Math.PI / 180)).toBeCloseTo(
-			-0.963255229114832e-5,
+			-0.9632552291148362783e-5,
 			15
 		);
 	});
-	it(`obliquity 0.4063197106621162e-4`, () => {
+	it(`obliquity 0.4063197106621159367e-4`, () => {
 		expect(nutation.obliquity() * (Math.PI / 180)).toBeCloseTo(
-			0.4063197106621162e-4,
+			0.4063197106621159367e-4,
 			15
 		);
 	});

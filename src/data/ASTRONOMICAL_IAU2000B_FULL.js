@@ -4,9 +4,8 @@
  * @Author: lax
  * @Date: 2023-04-27 10:02:37
  * @LastEditors: lax
- * @LastEditTime: 2024-07-22 00:51:17
+ * @LastEditTime: 2023-08-09 21:26:10
  */
-// TODO(未简化)
 // l  l' F  D  Om         A        A'      A"        B      B'     B"
 module.exports = {
 	coefficient: 0.0000001,

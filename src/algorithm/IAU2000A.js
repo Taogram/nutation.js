@@ -4,10 +4,10 @@
  * @Author: lax
  * @Date: 2022-08-01 22:48:51
  * @LastEditors: lax
- * @LastEditTime: 2023-12-29 14:29:27
+ * @LastEditTime: 2024-07-22 00:53:46
  * @FilePath: \nutation\src\algorithm\IAU2000.js
  */
-
+// TODO;
 module.exports = {
 	l(T) {
 		return (

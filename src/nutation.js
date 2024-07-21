@@ -4,18 +4,20 @@
  * @Author: lax
  * @Date: 2022-02-26 13:39:00
  * @LastEditors: lax
- * @LastEditTime: 2023-12-29 14:22:07
+ * @LastEditTime: 2024-07-22 00:51:57
  * @FilePath: \nutation.js\src\nutation.js
  */
 const IAU1980_LIB = require("@/data/ASTRONOMICAL_IAU1980.js");
 const IAU1980_LIB_FULL = require("@/data/ASTRONOMICAL_IAU1980_FULL.js");
 const IAU2000A_LIB = require("@/data/ASTRONOMICAL_IAU2000A.js");
 const IAU2000B_LIB = require("@/data/ASTRONOMICAL_IAU2000B.js");
+const IAU2000B_LIB_FULL = require("@/data/ASTRONOMICAL_IAU2000B_FULL.js");
 const ASTRONOMICAL = {
 	IAU1980: IAU1980_LIB,
 	IAU2000A: IAU2000A_LIB,
 	IAU2000B: IAU2000B_LIB,
 	IAU1980_FULL: IAU1980_LIB_FULL,
+	IAU2000B_FULL: IAU2000B_LIB_FULL,
 };
 const TIME = require("@/tools/time");
 const IAU1980 = require("@/algorithm/IAU1980.js");

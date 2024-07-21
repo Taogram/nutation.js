@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2022-08-09 09:04:42
  * @LastEditors: lax
- * @LastEditTime: 2023-12-29 14:37:46
+ * @LastEditTime: 2024-07-22 00:54:48
  * @FilePath: \nutation.js\readme - en.md
 -->
 ## 介绍
@@ -45,7 +45,7 @@ const nutation = new Nutation(jde,1980/2000b);
 ```
 * FULL
 true/false
-是否使用简化的章动库，当前仅1980有效
+是否使用简化的章动库，当前仅1980有效,2000b简化和非简化库内容一致
 
 ### 返回值
 基于角度单位的值
