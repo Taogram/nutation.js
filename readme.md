@@ -4,7 +4,7 @@
  * @Author: lax
  * @Date: 2022-08-09 09:04:42
  * @LastEditors: lax
- * @LastEditTime: 2024-07-22 00:54:48
+ * @LastEditTime: 2024-07-28 11:16:11
  * @FilePath: \nutation.js\readme - en.md
 -->
 ## 介绍
@@ -51,8 +51,18 @@ true/false
 基于角度单位的值
 
 
+### 误差测量(jde = 2446895.5 to longitude)
+* SOFA(C++): -3".7878(-0.001052173431676) 
+result:-0.001052173431675999
+* 《Astronomical.Algorithms》: -3".788 
+result:-3.7879316990323963
+* 详见 [test/nutation.spec.js](https://github.com/Taogram/nutation.js/blob/master/test/nutation.spec.js)
+* [SOFA_C_TEST](https://github.com/Taogram/sofa_c_test)
+
 ### 参考资料
 
 * 《IAU1976、1980及2000A岁差章动模型的比较》
 * 《1980IAU章动理论最终报告》
 * 《Astronomical.Algorithms》
+* [《IAU SOFA》](https://iausofa.org/)-The International Astronomical Union's SOFA
+* [《NOVAS》](https://www.cnmoc.usff.navy.mil/)-Naval Observatory Vector Astronomy Software (NOVAS)
